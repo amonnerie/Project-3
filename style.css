@@ -1,0 +1,14 @@
+
+
+body {
+    background-image: url(https://t4.ftcdn.net/jpg/01/94/38/65/360_F_194386595_UccNHAeoYmGC6AmZT4FmopkX18V65QDQ.jpg);
+}
+
+.container {
+    background-color: rgba(140, 182, 245, .7);
+}
+
+h1 {
+    background-color: grey;
+    margin: 5px 5px;
+}
