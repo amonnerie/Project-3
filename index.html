@@ -12,15 +12,19 @@
 <body>
 
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>North American Shark Attack Data</h1>
+    <div class="title">
+      <div class="title-block">
+        <h1>North and South American Shark Attack Data</h1>
         <p>From 2010 to 2018</p>
-        <p>By Group 3</p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-2">
+    <div class="content">
+      <div class= "first-row"">
+        <p>This is a visualization of the data from <a href="https://www.kaggle.com/datasets/teajay/global-shark-attacks">Kaggle by Toby Jolly</a> 
+          which that data came from this <a href="https://www.sharkattackfile.net/index.htm">site</a></p>
+        <p>We have three visualizations: two maps and one graph according to the inputs from the user: Year, Country (in North and South America), Activity, and Fatal</p>
+      </div>
+      <div class= "second-row">
         <div class="input">
             <div class="well">
             <h5>Year:</h5>
@@ -31,7 +35,7 @@
                 <select id="selDataset" onchange="optionChanged(this.value)"></select>
             </div>
             <div class="well">
-                <h5>Activate:</h5>
+                <h5>Activity:</h5>
                 <select id="selDataset" onchange="optionChanged(this.value)"></select>
             </div>
             <div class="well">
@@ -39,30 +43,28 @@
                 <select id="selDataset" onchange="optionChanged(this.value)"></select>
             </div>
         </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Event Info</h3>
-          </div>
-          <div id="sample-metadata" class="panel-body"></div>
+      <div class="map-block1">
+        <div id="visual1">
+          <p>MAP 1 here</p>
         </div>
       </div>
-      <div class="col-md-5">
-        <div id="visual1"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="visual2"></div>
-      </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="visual3"></div>
+    <div class= "third-row">
+      <div class="map-block2">
+        <div id="visual2"><p>MAP 2 here</p></div>
+      </div>
+      <div class="graph-block">
+        <div id="visual3"><p>Graph here</p></div>
       </div>
     </div>
   </div>
+  <footer>
+    <p>Project by Group 3 (Cassandra Graf, Lauren Amoroso, and Andrea Monnerie)</p>
+  </footer>
 
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="./static/js/app.js"></script>
+<!--  <script src="./static/js/app.js"></script> -->
 <!--  <script src="./static/js/bonus.js"></script> -->
 
 </body>

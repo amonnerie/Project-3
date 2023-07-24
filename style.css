@@ -1,14 +1,64 @@
 
 
 body {
-    background-image: url(https://t4.ftcdn.net/jpg/01/94/38/65/360_F_194386595_UccNHAeoYmGC6AmZT4FmopkX18V65QDQ.jpg);
+    /*Shark seamless background*/
+    /*background-image: url(https://t4.ftcdn.net/jpg/01/94/38/65/360_F_194386595_UccNHAeoYmGC6AmZT4FmopkX18V65QDQ.jpg);*/
+
+    /*water seamless background*/
+    background-image: url(https://t3.ftcdn.net/jpg/02/36/28/16/360_F_236281683_NBY2BOTKEPPSvIiKxZu6LsZuPL9KrXF5.jpg);
+    padding: 20px;
+}
+
+.first-row {
+    margin-top: 20px; 
+}
+
+.second-row, .third-row {
+    margin-top: 20px;
+    display: flex;
+    height: 500px;
+}
+
+.input, .map-block1 {
+    display: inline-block;
 }
 
 .container {
     background-color: rgba(140, 182, 245, .7);
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 
-h1 {
-    background-color: grey;
-    margin: 5px 5px;
+h1, p {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+p {
+    margin-top: 0;
+    text-align: center;
+}
+
+.input {
+    padding: 30px;
+    margin: 0px 0px 0px 20px;
+    border: 1px solid black;
+    vertical-align: middle;
+}
+
+.map-block1, .map-block2, .graph-block {
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid black;
+    flex-grow: 1;
+    text-align: center;
+}
+
+a {
+    color: yellow;
+}
+
+footer {
+    margin-top: 20px;
 }
