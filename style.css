@@ -2,10 +2,10 @@
 
 body {
     /*Shark seamless background*/
-    /*background-image: url(https://t4.ftcdn.net/jpg/01/94/38/65/360_F_194386595_UccNHAeoYmGC6AmZT4FmopkX18V65QDQ.jpg);*/
+    background-image: url(https://t4.ftcdn.net/jpg/01/94/38/65/360_F_194386595_UccNHAeoYmGC6AmZT4FmopkX18V65QDQ.jpg);
 
     /*water seamless background*/
-    background-image: url(https://t3.ftcdn.net/jpg/02/36/28/16/360_F_236281683_NBY2BOTKEPPSvIiKxZu6LsZuPL9KrXF5.jpg);
+    /*background-image: url(https://t3.ftcdn.net/jpg/02/36/28/16/360_F_236281683_NBY2BOTKEPPSvIiKxZu6LsZuPL9KrXF5.jpg);*/
     padding: 20px;
 }
 
