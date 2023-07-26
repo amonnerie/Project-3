@@ -95,7 +95,11 @@ function organizeActivities() {
 
 function map1() {
   console.log("in map1");
-  const map = L.map('visual1').setView([40.752895, -101.010851], 3);
+  //const map = L.map('visual1').setView([40.752895, -101.010851], 3);
+  const map = L.map("visual1", {
+    center: [40.752895, -101.010851],
+    zoom: 4
+  });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
