@@ -14,7 +14,7 @@ const activityBins = ["All", "Swimming", "Walking","Standing","Boating", "Fishin
 dropdowns.forEach(dropdown => {
   dropdown.addEventListener('change', () => {
     const values = getValues();
-    console.log(values);
+    console.log("current values:", values);
 
     //making maps and graphs here
   });
@@ -22,9 +22,10 @@ dropdowns.forEach(dropdown => {
 
 //the "main" function
 function init() {
-  
+
   const values = getValues();
-  console.log(values);
+  console.log("initial values:", values);
+  
 };
 
 
@@ -92,7 +93,7 @@ function organizeActivities() {
 //***helpful functions ended
 
 //***create the dropdowns using data from json
-let years = [];
+
 function dropdown_year() {
     let dropdownMenu = d3.select("#selyear");
 
@@ -113,7 +114,9 @@ function dropdown_year() {
         .text(years[i])
         .property("value", years[i]);
     };
+    return years;
   });
+
 }
 function dropdown_country() {
   let dropdownMenu = d3.select("#selcountry");
@@ -170,7 +173,7 @@ function dropdown_act() {
 function dropdown_fatal() {
   let dropdownMenu = d3.select("#selfatal");
   
-  const fatal = ["Y", "N"];
+  const fatal = ["All", "N", "Y"];
 
   for (let i = 0; i < fatal.length; i++){
     dropdownMenu
