@@ -48,12 +48,17 @@ h2 {
     vertical-align: middle;
 }
 
+#visual1 {
+    height: 500px;
+}
+
 .map-block1, .map-block2, .graph-block {
     margin-left: 20px;
     margin-right: 20px;
     border: 1px solid black;
     flex-grow: 1;
     text-align: center;
+    height:100%;
 }
 
 a {
