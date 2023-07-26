@@ -1,7 +1,7 @@
 /* Javascript for project 3 */
 //constant/static values
 const data_json = "Shark_AttacksDB.Events.json";
-const geo_json = "coordinates.json";
+const geo_json = "Project3.LocationDB.json";
 const dropdowns = document.querySelectorAll('select');
 const activityBins = ["All", "Swimming", "Walking","Standing","Boating", "Fishing", "Surfing", "Playing", "Floating", "Kayaking","Shark Related Activites", "Other", "Unknown"];
 
@@ -9,6 +9,9 @@ const activityBins = ["All", "Swimming", "Walking","Standing","Boating", "Fishin
 /*d3.json(data_json).then(function(data){
   console.log("data:", data);
 });*/
+/*d3.json(geo_json).then((data) => {
+    console.log(data)
+  });*/
 
 //create event listener in order to get 
 //all values from dropdowns
@@ -21,16 +24,12 @@ dropdowns.forEach(dropdown => {
   });
 });
 
-//the "main" function
+//the init function
 function init() {
 
   const values = getValues();
   console.log("initial values:", values);
-
-  d3.json(geo_json).then((data) => {
-    console.log(data)
-  });
-  
+  map1();
 };
 
 
@@ -92,6 +91,15 @@ function organizeActivities() {
   });
   console.log("organized", organized);
   return organized
+};
+
+function map1() {
+  console.log("in map1");
+  const map = L.map('visual1').setView([40.752895, -101.010851], 3);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 };
 
 init();
