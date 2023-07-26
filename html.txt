@@ -21,68 +21,30 @@
     <div class="content">
       <div class= "first-row"">
         <h2>This is a visualization of the data from <a href="https://www.kaggle.com/datasets/teajay/global-shark-attacks" target="_blank">Kaggle by Toby Jolly</a> 
-          which that data came from this <a href="https://www.sharkattackfile.net/index.htm" target="_blank">site</a></h2>
+          which that data came from this <a href="https://www.sharkattackfile.net/index.htm" >site</a></h2>
         <h2>We have three visualizations: two maps and one graph according to the inputs from the user: Year, Country (US, Canada, or Mexico), Activity, and Fatal</h2>
       </div>
       <div class= "second-row">
         <div class="input">
             <div class="well">
             <h5>Year:</h5>
-            <select id="selyear" onchange="getValues()">
-                <option selected="selected">2018</option>
-                <option>2017</option>
-                <option>2016</option>
-                <option>2015</option>
-                <option>2014</option>
-                <option>2013</option>
-                <option>2012</option>
-                <option>2011</option>
-                <option>2010</option>
-            </select>
+            <select id="selyear" onchange="getValues()"></select>
             </div>
             <div class="well">
                 <h5>Country:</h5>
-                <select id="selcountry" onchange="getValues()">
-                  <option selected="selected">All</option>
-                  <option>USA</option>
-                  <option>MEXICO</option>
-                  <option>CANADA</option>
-                </select>
+                <select id="selcountry" onchange="getValues()"></select>
             </div>
             <div class="well">
                 <h5>Type of Attack:</h5>
-                <select id="seltype" onchange="getValues()">
-                  <option selected="selected">All</option>
-                  <option>Unprovoked</option>
-                  <option>Provoked</option>
-                  <option>Other</option>
-                </select>
+                <select id="seltype" onchange="getValues()"></select>
             </div>
             <div class="well">
               <h5>Activity When attacked:</h5>
-              <select id="selact" onchange="getValues()">
-                <option selected="selected">All</option>
-                <option>Swimming</option>
-                <option>Standing</option>
-                <option>Boating</option>
-                <option>Fishing</option>
-                <option>Surfing</option>
-                <option>Playing</option>
-                <option>Floating</option>
-                <option>Kayaking</option>
-                <option>Shark Related Activites</option>
-                <option>Other</option>
-                <option>Unknown</option>
-                <option>Swimming</option>
-              </select>
+              <select id="selact" onchange="getValues()"></select>
           </div>
             <div class="well">
                 <h5>Fatal (Y/N):</h5>
-                <select id="selfatal" onchange="getValues()">
-                  <option selected="selected">All</option>
-                  <option>Y</option>
-                  <option>N</option>
-                </select>
+                <select id="selfatal" onchange="getValues()"></select>
             </div>
         </div>
       <div class="map-block1">
