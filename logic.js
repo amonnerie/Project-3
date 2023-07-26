@@ -1,6 +1,7 @@
 /* Javascript for project 3 */
 //constant/static values
 const data_json = "Shark_AttacksDB.Events.json";
+const geo_json = "coordinates.json";
 const dropdowns = document.querySelectorAll('select');
 const activityBins = ["All", "Swimming", "Walking","Standing","Boating", "Fishing", "Surfing", "Playing", "Floating", "Kayaking","Shark Related Activites", "Other", "Unknown"];
 
@@ -25,6 +26,10 @@ function init() {
 
   const values = getValues();
   console.log("initial values:", values);
+
+  d3.json(geo_json).then((data) => {
+    console.log(data)
+  });
   
 };
 
@@ -85,7 +90,7 @@ function organizeActivities() {
     };
     
   });
-
+  console.log("organized", organized);
   return organized
 };
 
