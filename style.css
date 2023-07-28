@@ -24,7 +24,7 @@ body {
 }
 
 .container {
-    background-color: rgba(140, 182, 245, .7);
+    background-color: rgba(140, 182, 245, .8);
     padding-top: 10px;
     padding-bottom: 20px;
 }
@@ -36,9 +36,11 @@ h1, h2 {
     font-weight: bold;
 }
 
-h2 {
+h2, h3, h4 {
     margin-top: 0;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .input {
@@ -49,15 +51,25 @@ h2 {
 }
 
 #visual1 {
-    height: 500px;
+    height: 550px;
 }
 
-.map-block1, .map-block2, .graph-block {
+.map-block1, .map-block2 {
     margin-left: 20px;
     margin-right: 20px;
     border: 1px solid black;
     flex-grow: 1;
     text-align: center;
+}
+
+.graph-block {
+    padding: unset;
+    border: 1px solid black;
+    flex-grow: 1;
+    margin: unset;
+    margin-right: 20px;
+    width: 100%;
+    max-width: 500px;
 }
 
 a {

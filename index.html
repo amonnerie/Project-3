@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="shark-fin.png" type="image/x-icon">
   <title>Shark Attack Data</title>
 
   <!-- Leaflet CSS -->
@@ -22,14 +23,14 @@
     <div class="title">
       <div class="title-block">
         <h1>North American Shark Attack Data</h1>
-        <p>From 2010 to 2018</p>
+        <h2>From 2010 to 2018</h2>
       </div>
     </div>
     <div class="content">
       <div class= "first-row"">
-        <h2>This is a visualization of the data from <a href="https://www.kaggle.com/datasets/teajay/global-shark-attacks" target="_blank">Kaggle by Toby Jolly</a> 
-          which that data came from this <a href="https://www.sharkattackfile.net/index.htm" target="_blank">site</a></h2>
-        <h2>We have three visualizations: two maps and one graph according to the inputs from the user: Year, Country (US, Canada, or Mexico), Activity, and Fatal</h2>
+        <h4>This is a visualization of the data from <a href="https://www.kaggle.com/datasets/teajay/global-shark-attacks" target="_blank">Kaggle by Toby Jolly</a> 
+          which that data came from this <a href="https://www.sharkattackfile.net/index.htm" target="_blank">site</a></h4>
+        <h4>We have three visualizations: two maps and one graph according to the inputs from the user: Year, Country (US, Canada, or Mexico), Activity, and Fatal</h4>
       </div>
       <div class= "second-row">
         <div class="input">
@@ -67,11 +68,10 @@
                 </select>
             </div>
             <div class="well">
-              <h5>Activity When attacked:</h5>
+              <h5>Activity before attacked:</h5>
               <select id="selact" onchange="getValues()">
                 <option selected="selected">All</option>
                 <option>Swimming</option>
-                <option>Standing</option>
                 <option>Boating</option>
                 <option>Fishing</option>
                 <option>Surfing</option>
@@ -98,23 +98,32 @@
     </div>
     <div class= "third-row">
       <div class="map-block2">
-        <div id="visual2"><p>MAP 2 here</p></div>
+        <!--div id="visual2"><p>MAP 2 here</p></div-->
+        <canvas id="visual2" width="400" height="400"></canvas>
       </div>
       <div class="graph-block">
-        <div id="visual3"><p>Graph here</p></div>
+        <div id="visual3" style="height:100%;"></div>
       </div>
     </div>
   </div>
   <footer>
-    <p>Project by Group 3 (Cassandra Graf, Lauren Amoroso, and Andrea Monnerie)</p>
+    <h3>Project by Group 3 (Cassandra Graf, Lauren Amoroso, and Andrea Monnerie)</h3>
   </footer>
 
+<!-- D3 JS -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
+
+<!-- Plotly JS -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
- <!-- Leaflet JS -->
+
+<!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
+
+<!-- Chart JS  -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+<!-- Logic JS   -->
   <script type="text/javascript" src="logic.js"></script>
 
 </body>
