@@ -1,9 +1,9 @@
 /* Javascript for project 3 */
 //constant/static values
 const data_json = "Shark_AttacksDB.Events.json";
-const geo_json = "Project3.LocationDB.json";
+const geo_json = "Project3.newLocationDB.json";
 const dropdowns = document.querySelectorAll('select');
-const activityBins = ["Swimming", "Walking","Standing","Boating", "Fishing", "Surfing", "Playing", "Floating", "Kayaking","Shark"];
+const activityBins = ["Swimming", "Fishing", "Surfing", "Playing", "Floating", "Kayaking","Shark"];
 const typeBins = ["Unprovoked", "Provoked"];
 const ctx = document.getElementById('visual2').getContext('2d');
 
@@ -21,23 +21,15 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 //**************************//
-//print the json data
-/*d3.json(data_json).then(function(data){
-  console.log("data:", data);
-});*/
-/*d3.json(geo_json).then((data) => {
-    console.log(data)
-  });*/
 
 //create event listener in order to get 
 //all values from dropdowns
-
 dropdowns.forEach(dropdown => {
   dropdown.addEventListener('change', () => {
     const values = getValues();
     console.log("current values:", values);
 
-    //making maps and graphs here
+    //making maps and graphs here upon updates
     map1(values);
     graph1(values);
   });
@@ -76,41 +68,6 @@ function getValues() {
   return dropdownValues;
 };
 
-/*function organizeActivities() {
-  var organized = {};
-
-  d3.json(data_json).then((data) => {
-    let activities = [];
-
-    //collect case numbers
-    let caseNumbers = [];
-
-    for (let i = 0; i < data.length; i++){
-      activities.push(data[i].Activity);
-      caseNumbers.push(data[i]["Case Number"]);
-      //NOTE: caseNumbers and activities should have the same length
-
-    };
-
-    for (let i = 0; i < activities.length; i++){
-      for (let j = 1; j < activityBins.length; j++){
-        eventact = activities[i];
-
-        if(eventact === undefined) {
-          organized[caseNumbers[i]] = "Unknown";
-          break;
-        }
-        if(eventact.includes(activityBins[j])) {
-          organized[caseNumbers[i]] = activityBins[j];
-          break;
-        }
-      };
-    };
-    
-  });
-  return organized
-};   */
-
 function map1(values) {
 
   d3.json(geo_json).then((data) => {
@@ -124,16 +81,6 @@ function map1(values) {
     };
 
     filteredData.forEach(feature => {
-    
-    // Customize the marker appearance based on the earthquake magnitude
-    /*var marker = L.circleMarker([feature.Lat, feature.Lng], {
-      //radius: mag * 5,
-      fillColor: "red",
-      color: 'white',
-      weight: 1,
-      opacity: 1,
-      fillOpacity: 0.7,
-    }).addTo(map);*/
     
     var sharkIcon = L.icon({
       iconUrl: 'https://static.thenounproject.com/png/1220701-200.png',
@@ -152,12 +99,12 @@ function map1(values) {
       <br><b>Activity When Attacked:</b> ${feature.Activity}
       <br><b>Injury:</b> ${feature.Injury}
       <br><b>Fatal:</b> ${feature.Fatal}
-      <br><b>More Info:</b> ${feature["href formula"]}
+      <br><b>More Info:</b> <a href=${feature.Link} target="_blank">PDF</a>
       <br>`);
 });
 
   if(filteredData.length == 0) {
-    alert("No data with current parameters");
+    alert("No known data with current parameters");
   }
   });
   };
@@ -207,6 +154,8 @@ function graph1(values) {
   });
 }
 
+
+//chart.js
 function graph2(values) {
 
   d3.json(geo_json).then((data) => {
@@ -253,50 +202,6 @@ function graph2(values) {
     });
   });
 };
-/*
-function createMarkers(values) {
-
-  d3.json(geo_json).then((data) => {
-    ///console.log("data: ", data[0].Year);
-    let filteredData = filterData(values, data);
-    console.log("filteredData in createmarkers: ", filteredData);
-
-    filteredData.forEach(feature => {
-    
-    // Customize the marker appearance based on the earthquake magnitude
-    var marker = L.circleMarker([feature.Lat, feature.Lng], {
-      //radius: mag * 5,
-      fillColor: "red",
-      color: 'white',
-      weight: 1,
-      opacity: 1,
-      fillOpacity: 0.7,
-    }).addTo(map);
-    var sharkIcon = L.icon({
-      iconUrl: 'https://static.thenounproject.com/png/1220701-200.png',
-  
-      iconSize:     [35, 35], // size of the icon
-      iconAnchor:   [22, 34], // point of the icon which will correspond to marker's location
-      popupAnchor:  [-1, -20] // point from which the popup should open relative to the iconAnchor
-  });
-
-
-    console.log("create marker");
-    // If there is no marker with this id yet, instantiate a new one.
-    var marker = new L.marker([feature.Lat, feature.Lng],
-      {icon: sharkIcon}).addTo(map);
-
-    marker.bindPopup(`Date: ${feature.Date}
-      <br>Location: ${feature.Location}
-      <br>Country: ${feature.Country}
-      <br>`);
-
-
-
-    });
-
-});
-};*/
 
 function filterData(values, data) {
   let newData = data;
@@ -329,20 +234,6 @@ function filterCountry(events) {
   values = getValues();
   return events.Country == values["selcountry"];
 };
-
-/*function filterType(events) {
-  values = getValues();
-  return events.Type == values["seltype"];
-};*/
-/*
-function filterAct(events) {
-  values = getValues();
-  acts = gatherAct(values);
-  for(i=0; i < acts.length; i++){
-    events = filterAct(acts[i]);
-  };
-  return events.Activity == values["selact"];
-};*/
 
 function filterFatal(events){
   values = getValues();
@@ -378,14 +269,8 @@ function gatherType(values, data){
 
 
 function gatherAct(values, data) {
-  const selAct = values["selact"];
+  const selAct = values["selact"].replace(" Related Activites", "");
   let filteredAct = [];
-    //let activities = [];
-  console.log("in gatherAct:", selAct);
-    //get all events' activites in list
-    /*for (let i = 0; i < data.length; i++){
-      activities.push(data[i].Activity);
-    };*/
   
   for (let i = 0; i < data.length; i++){
     eventact = data[i].Activity;
@@ -397,24 +282,25 @@ function gatherAct(values, data) {
       }
       } else if (selAct != "Other") {
       //find activites by selact
-      console.log("else if:", eventact)
         if(eventact === undefined){
         } else {
           if(eventact.includes(selAct.toLowerCase()) || eventact.includes(selAct)){
-            console.log("includes");
             filteredAct.push(data[i]);
           }
         }
         
       } else {
         //selAct is "Other"
+        //activityBins = ["Swimming", "Fishing", "Surfing", "Playing", "Floating", "Kayaking","Shark"]
         for (let j = 0; j < activityBins.length; j++){
-          if(eventact === undefined){
-          }
-          if (eventact.includes(activityBins[j])){
-          } else if (j = 9) {
+          if(eventact === undefined || eventact === null){
+            break;
+            //leave this for loop to get new eventact
+          } else if (eventact.includes(activityBins[j].toLowerCase()) || eventact.includes(activityBins[j])){
+            break;
+            //leave this for loop to get new eventact
+          } else if (j == activityBins.length-1) {
             filteredAct.push(data[i]);
-          } else {
           };
         };
       };
@@ -424,4 +310,3 @@ function gatherAct(values, data) {
 return filteredAct;
 };
 init();
-//organizeActivities();
