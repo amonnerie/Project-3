@@ -394,18 +394,15 @@ function gatherAct(values, data) {
       //find the activities that are undefined
       if(eventact === undefined){
         filteredAct.push(data[i]);
-        break;
       }
       } else if (selAct != "Other") {
       //find activites by selact
       console.log("else if:", eventact)
         if(eventact === undefined){
-          break;
         } else {
           if(eventact.includes(selAct.toLowerCase()) || eventact.includes(selAct)){
             console.log("includes");
             filteredAct.push(data[i]);
-            break;
           }
         }
         
@@ -413,14 +410,11 @@ function gatherAct(values, data) {
         //selAct is "Other"
         for (let j = 0; j < activityBins.length; j++){
           if(eventact === undefined){
-            break;
           }
           if (eventact.includes(activityBins[j])){
-            break;
           } else if (j = 9) {
             filteredAct.push(data[i]);
           } else {
-            break;
           };
         };
       };
