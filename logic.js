@@ -5,7 +5,7 @@ const geo_json = "Project3.newLocationDB.json";
 const dropdowns = document.querySelectorAll('select');
 const activityBins = ["Swimming", "Fishing", "Surfing", "Playing", "Floating", "Kayaking","Shark"];
 const typeBins = ["Unprovoked", "Provoked"];
-const ctx = document.getElementById('visual2').getContext('2d');
+//const ctx = document.getElementById('visual2').getContext('2d');
 
 //constant variables for map1//
 const marker_id = "1";
@@ -32,6 +32,7 @@ dropdowns.forEach(dropdown => {
     //making maps and graphs here upon updates
     map1(values);
     graph1(values);
+    graph2(values);
   });
 });
 
@@ -42,6 +43,7 @@ function init() {
   console.log("current values:", values);
   map1(values);
   graph1(values);
+  graph2(values);
 };
 
 
@@ -154,7 +156,7 @@ function graph1(values) {
   });
 }
 
-
+/*
 //chart.js
 function graph2(values) {
 
@@ -200,6 +202,80 @@ function graph2(values) {
         }
       }
     });
+  });
+};*/
+
+function graph2(values) {
+  d3.json(geo_json).then((data) => {
+    let filteredData = filterData(values, data);
+    //let table = new DataTable('visual2');
+    console.log("in graph2", filteredData);
+    /*table.row.add( {
+      "name":       "Tiger Nixon",
+      "position":   "System Architect",
+      "salary":     "$3,120",
+      "start_date": "2011/04/25",
+      "office":     "Edinburgh",
+      "extn":       "5421"
+    }).draw();*/
+    var tableSpot = $("#visual2")
+    
+    if ($.fn.dataTable.isDataTable('#visual2')) {
+      tableSpot.DataTable().destroy();
+    };
+    /*tableSpot.DataTable ({
+        "data" : filteredData,
+        "columns" : [
+            { "data" : "Case Number" },
+            { "data" : "Date" },
+            { "data" : "Location" }],
+        /*columns: [
+          { name: 'Case Number' },
+          { name: 'Date' },
+          { name: 'Location' }
+        ],
+        scrollResize: true,
+        scrollY: 100,
+        scrollCollapse: true,
+        paging: false,
+        searching: false
+        
+    });*/
+    tableSpot.DataTable ({
+      "data" : filteredData,
+      "columns" :  [
+        {
+            "data": "Date",
+            "title": "Date",
+            "defaultContent": "<i>NA</i>"
+        },
+        {
+          "data": "Location",
+          "title": "Location",
+          "defaultContent": "<i>NA</i>"
+        },
+        {
+          "data": "Type",
+          "title": "Type of Attack",
+          "defaultContent": "<i>NA</i>"
+        },
+        {
+          "data": "Activity",
+          "title": "Activity",
+          "defaultContent": "<i>Unknown</i>"
+        }],
+      /*columns: [
+        { name: 'Case Number' },
+        { name: 'Date' },
+        { name: 'Location' }
+      ],*/
+      scrollResize: true,
+      scrollY: 100,
+      scrollCollapse: true,
+      paging: false,
+      searching: false
+      
+  });
   });
 };
 
