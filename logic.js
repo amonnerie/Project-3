@@ -139,7 +139,9 @@ function graph1(values) {
     yaxis: {
       title: {
         text: 'Frequency',
-      }
+      },
+      tickmode: "array",
+      tickvals: [0, 1, 2, 3, 4],
     },
     margin: {
       t: 30,
@@ -147,9 +149,8 @@ function graph1(values) {
     },
     pad: {
       b: 20
-    }
+    },
   };
-
 
   var dataTrace = [trace];
   Plotly.newPlot('visual3', dataTrace, layout);
