@@ -24,7 +24,8 @@ body {
 }
 
 .container {
-    background-color: rgba(140, 182, 245, .8);
+    /*background-color: rgba(140, 182, 245, .9);*/
+    background-color: rgba(201, 201, 201, .8);
     padding-top: 10px;
     padding-bottom: 20px;
 }
@@ -71,6 +72,7 @@ h2, h3, h4 {
     text-align: center;
     background-color: white;
     height: unset;
+    width: unset;
 }
 
 #visual2 {
@@ -84,11 +86,11 @@ h2, h3, h4 {
     margin: unset;
     margin-right: 20px;
     width: 100%;
-    max-width: 500px;
+    max-width: 700px;
 }
 
 a {
-    color: yellow;
+    color: rgb(236, 10, 78);
 }
 
 footer {
