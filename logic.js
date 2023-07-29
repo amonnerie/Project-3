@@ -157,91 +157,16 @@ function graph1(values) {
   });
 }
 
-/*
-//chart.js
-function graph2(values) {
-
-  d3.json(geo_json).then((data) => {
-    let filteredData = filterData(values, data);
-
-    let activities = [];
-    for (i=0; i < filteredData.length; i++) {
-      activities.push(filteredData[i].Activity);
-    };
-    activities.sort();
-
-    const chart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: activityBins,
-        datasets: [{
-          label: 'Activities',
-          data: filteredData.Activity,
-          backgroundColor: 'green',
-        }]
-      },
-      options: {
-        scales: {
-          xAxes: [{
-            display: false,
-            barPercentage: 1.3,
-            ticks: {
-              max: 3,
-            }
-          }, {
-            display: true,
-            ticks: {
-              autoSkip: false,
-              max: 4,
-            }
-          }],
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    });
-  });
-};*/
-
 function graph2(values) {
   d3.json(geo_json).then((data) => {
     let filteredData = filterData(values, data);
-    //let table = new DataTable('visual2');
-    console.log("in graph2", filteredData);
-    /*table.row.add( {
-      "name":       "Tiger Nixon",
-      "position":   "System Architect",
-      "salary":     "$3,120",
-      "start_date": "2011/04/25",
-      "office":     "Edinburgh",
-      "extn":       "5421"
-    }).draw();*/
+
     var tableSpot = $("#visual2")
     
     if ($.fn.dataTable.isDataTable('#visual2')) {
       tableSpot.DataTable().destroy();
     };
-    /*tableSpot.DataTable ({
-        "data" : filteredData,
-        "columns" : [
-            { "data" : "Case Number" },
-            { "data" : "Date" },
-            { "data" : "Location" }],
-        /*columns: [
-          { name: 'Case Number' },
-          { name: 'Date' },
-          { name: 'Location' }
-        ],
-        scrollResize: true,
-        scrollY: 100,
-        scrollCollapse: true,
-        paging: false,
-        searching: false
-        
-    });*/
+
     tableSpot.DataTable ({
       "data" : filteredData,
       "columns" :  [
@@ -265,11 +190,6 @@ function graph2(values) {
           "title": "Activity",
           "defaultContent": "<i>Unknown</i>"
         }],
-      /*columns: [
-        { name: 'Case Number' },
-        { name: 'Date' },
-        { name: 'Location' }
-      ],*/
       scrollResize: true,
       scrollY: 100,
       scrollCollapse: true,
@@ -368,7 +288,6 @@ function gatherAct(values, data) {
         
       } else {
         //selAct is "Other"
-        //activityBins = ["Swimming", "Fishing", "Surfing", "Playing", "Floating", "Kayaking","Shark"]
         for (let j = 0; j < activityBins.length; j++){
           if(eventact === undefined || eventact === null){
             break;
