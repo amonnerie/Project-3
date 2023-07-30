@@ -1,6 +1,6 @@
 # Project-3
 
-If running the html file on your local machine: run the server, python -m http.server, open your browser and type localhost:8000. Or you can click the link below to see the live website.
+If running the html file on your local machine: run this server in your terminal, python -m http.server, open your browser and type localhost:8000 in the search bar. Or you can click the link below to see the live website.
 
 Live site: https://amonnerie.github.io/
 
