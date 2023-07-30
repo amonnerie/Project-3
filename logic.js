@@ -1,7 +1,7 @@
 /* Javascript for project 3 */
 //constant/static values
 const data_json = "Shark_AttacksDB.Events.json";
-const geo_json = "Project3.newLocationDB.json";
+const geo_json = "Project3.cleanLocationDB.json";
 const dropdowns = document.querySelectorAll('select');
 const activityBins = ["Swimming", "Fishing", "Surfing", "Playing", "Floating", "Kayaking","Shark"];
 const typeBins = ["Unprovoked", "Provoked"];
@@ -94,6 +94,7 @@ function map1(values) {
     var marker = L.marker([feature.Lat, feature.Lng],
     {icon: sharkIcon}).addTo(map);
     this.mapMarkers.push(marker);
+
     marker.bindPopup(`<b>Date:</b> ${feature.Date}
       <br><b>Location:</b> ${feature.Location}
       <br><b>Country:</b> ${feature.Country}
