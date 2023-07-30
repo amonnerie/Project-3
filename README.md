@@ -10,7 +10,7 @@ Files to review: logic.js, index.html, style.css. The remaining files are resour
 
 The live, interactive site linked above was created using the Global Shark Attacks dataset from Kaggle (https://www.kaggle.com/datasets/teajay/global-shark-attacks).
 
-The dataset included over 6,000 worldwide shark attack events. Using MongoDB, the data was filtered to only include events from Canada, USA, and Mexico which reduced the dataset to 507 events. The original data only included the location name and country, with no coordinates for latitude and longitude. Using a combination of the exported JSON data (with unwanted columns removed), Python, Jupyter Notebook, and the Open Weather Map API, the latitude and longitude coordinates were added to each event. Not all locations mapped to a latitude and longitude point so our dataset was reduced to 265 events.
+The dataset included over 6,000 worldwide shark attack events. Using MongoDB, the data was filtered to only include events from 2010-2018 in Canada, USA, and Mexico which reduced the dataset to 507 events. The original data only included the location name and country, with no coordinates for latitude and longitude. Using a combination of the exported JSON data (with unwanted columns removed), Python, Jupyter Notebook, and the Open Weather Map API, the latitude and longitude coordinates were added to each event. Not all locations mapped to a latitude and longitude point so our dataset was reduced to 265 events.
 
 Each visual on the website was created using a different JavaScript library. The map was created with Leaflet, the chart was created with DataTables, and the bar graph was created using Plotly. 
 
